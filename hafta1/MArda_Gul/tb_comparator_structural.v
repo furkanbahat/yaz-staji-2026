@@ -1,0 +1,61 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 14.07.2026 21:27:35
+// Design Name: 
+// Module Name: tb_comparator_structural
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+`timescale 1ns / 1ps
+
+module tb_comparator_structural();
+
+    reg [3:0] a;
+    reg [3:0] b;
+    wire esit;
+    wire buyuk;
+    wire kucuk;
+
+    comparator_structural uut (
+        .a(a),
+        .b(b),
+        .esit(esit),
+        .buyuk(buyuk),
+        .kucuk(kucuk)
+    );
+
+    initial begin
+        
+        a = 4'd5; b = 4'd5;
+        #10; 
+
+        a = 4'd12; b = 4'd7;
+        #10;
+
+        a = 4'd3; b = 4'd9;
+        #10;
+
+        a = 4'd15; b = 4'd0;
+        #10;
+        
+        a = 4'd0; b = 4'd15;
+        #10;
+
+        $finish;
+    end
+
+endmodule
